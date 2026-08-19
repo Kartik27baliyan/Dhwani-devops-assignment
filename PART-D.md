@@ -8,7 +8,6 @@ Format: Pull request comments
 ## BLOCKING — Must fix before merge
 
 ### 1. Secret printed to logs
-```yaml
 env:
   REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
 run: |
