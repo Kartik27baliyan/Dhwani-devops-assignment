@@ -7,7 +7,7 @@ Format: Pull request comments
 
 ## BLOCKING — Must fix before merge
 
-### 1. Secret printed to logs
+1. Secret printed to logs
 env:
   REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
 run: |
