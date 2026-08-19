@@ -1,12 +1,11 @@
-# Dhwani RIS DevOps Assignment
-**Ref:** DEVOPS-ASSIGN-01  
-**Author:** Kartik Baliyan
+# Dhwani RIS DevOps Assignment  
+Created By: Kartik Baliyan
 
 ## How to Start the Stack
 
 ### Prerequisites
 - Docker Desktop installed and running
-- Git installed
+- Git installed / Git Bash UI 
 
 ### Steps
 
@@ -43,17 +42,8 @@ Browser → Nginx (Port 80) → Flask App (Port 8000) → MariaDB (Port 3306)
 | Nginx | 128MB | Lightweight proxy, minimal memory needed |
 
 ## Most Awkward Requirement
-The most awkward requirement was making the application wait until the
-database was genuinely ready to accept connections, not merely until its
-container had started. Initially, the app container would start and
-immediately try to connect to MariaDB, which was still initializing.
-This caused connection errors on first boot. I first tried using only
-depends_on: db which only checks if the container is running, not if
-MariaDB is actually accepting connections. The fix required two things
-working together: a healthcheck on the db service using mysqladmin ping,
-and changing depends_on to use condition: service_healthy. This ensures
-Docker waits for MariaDB to pass its health check before starting the
-app container.
+The most awkward requirement was making the application wait until the database was genuinely ready to accept connections, not merely until its container had started. Initially, the app container would start and immediately try to connect to MariaDB, which was still initializing.
+This caused connection errors on first boot. I first tried using only depends_on: db which only checks if the container is running, not if MariaDB is actually accepting connections. The fix required two things working together: a healthcheck on the db service using mysqladmin ping,and changing depends_on to use condition: service_healthy. This ensures Docker waits for MariaDB to pass its health check before starting the app container.
 
 ## Screen Recording
 # LINK: 
