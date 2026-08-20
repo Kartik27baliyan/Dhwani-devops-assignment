@@ -46,4 +46,4 @@ The most awkward requirement was making the application wait until the database 
 This caused connection errors on first boot. I first tried using only depends_on: db which only checks if the container is running, not if MariaDB is actually accepting connections. The fix required two things working together: a healthcheck on the db service using mysqladmin ping,and changing depends_on to use condition: service_healthy. This ensures Docker waits for MariaDB to pass its health check before starting the app container.
 
 ## Screen Recording
-# LINK: 
+# LINK: https://drive.google.com/file/d/1D7YSCkO5OIMn1CW8YmNScYHMjBH05QwT/view?usp=sharing
